@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worksheet: Is There a Recipe for Happiness?</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f9ff;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            font-weight: bold;
+            color: #1a202c;
+        }
+        .section-title {
+            font-size: 2rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .question-block {
+            background-color: #f7fafc;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .question-text {
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+        .answer-input {
+            margin-top: 0.5rem;
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid #cbd5e0;
+        }
+        .multiple-choice-option {
+            background-color: #f1f5f9;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .multiple-choice-option:hover {
+            background-color: #e2e8f0;
+        }
+        .multiple-choice-option.selected {
+            background-color: #dbeafe;
+            border: 2px solid #3b82f6;
+        }
+        .submit-btn {
+            background-color: #3b82f6;
+            color: white;
+            font-weight: bold;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .submit-btn:hover:enabled {
+            background-color: #2563eb;
+        }
+        .submit-btn:disabled {
+            background-color: #93c5fd;
+            cursor: not-allowed;
+        }
+        .score-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 3rem;
+            border-radius: 1rem;
+            box-shadow: 0 15px 20px rgba(0,0,0,0.2);
+            text-align: center;
+            display: none;
+            z-index: 1000;
+        }
+        .score-text {
+            font-size: 32px;
+            font-weight: bold;
+            color: red;
+        }
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+        .re-attempt-timer {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-4xl text-center mb-4">Unit -1. Reading 1. IS THERE A RECIPE FOR HAPPINESS?</h1>
+        <p class="text-center text-gray-600 mb-8">Worksheet for Omani Level 3 students</p>
+
+        <!-- Section 1: Paragraph Headings -->
+        <div id="section-1" class="mb-8">
+            <h2 class="section-title text-2xl">Questions 1 to 5.</h2>
+            <p class="mb-4">From the following headings 1-6 choose a suitable title for paragraphs B to G. Write the correct number on your answer sheet. (WRITE ONLY THE CORRECT NUMBER)</p>
+            <ol class="list-decimal pl-6 mb-4">
+                <li>Safety, security and cleanliness at the cost of personal freedoms</li>
+                <li>The importance of socializing.</li>
+                <li>How a government helps people financially and socially.</li>
+                <li>Some social and economic problems in Mexico.</li>
+                <li>Hard work, strict rules, but people very happy.</li>
+                <li>Why people in Mexico do not worry about their poverty.</li>
+            </ol>
+            <div class="space-y-4">
+                <div class="question-block">
+                    <label class="question-text">1. C = </label>
+                    <input type="text" id="q1" class="answer-input" data-answer="3">
+                </div>
+                <div class="question-block">
+                    <label class="question-text">2. D = </label>
+                    <input type="text" id="q2" class="answer-input" data-answer="1">
+                </div>
+                <div class="question-block">
+                    <label class="question-text">3. E = </label>
+                    <input type="text" id="q3" class="answer-input" data-answer="4">
+                </div>
+                <div class="question-block">
+                    <label class="question-text">4. F = </label>
+                    <input type="text" id="q4" class="answer-input" data-answer="2">
+                </div>
+                <div class="question-block">
+                    <label class="question-text">5. G = </label>
+                    <input type="text" id="q5" class="answer-input" data-answer="6">
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: True/False/Not Given -->
+        <div id="section-2" class="mb-8">
+            <h2 class="section-title text-2xl">Questions 6 to 10.</h2>
+            <p class="mb-4">Do the following statements agree with the information given in the reading passage?</p>
+            <p class="mb-4">In the correct space in your answer sheet, write</p>
+            <ul class="list-disc pl-6 mb-4">
+                <li>**True (T)** if the statement agrees with the information</li>
+                <li>**False (F)** if the statement contradicts the information</li>
+                <li>**Not given (NG)** if there is no information on this</li>
+            </ul>
+            <div class="space-y-4">
+                <div class="question-block">
+                    <label class="question-text">6. Singapore is a very crowded country. </label>
+                    <input type="text" id="q6" class="answer-input" data-answer="T">
+                </div>
+                <div class="question-block">
+                    <label class="question-text">7. Singaporeans are usually lazy and relaxed. </label>
+                    <input type="text" id="q7" class="answer-input" data-answer="F">
+                </div>
+                <div class="question-block">
+                    <label class="question-text">8. Singapore gives free education to all people. </label>
+                    <input type="text" id="q8" class="answer-input" data-answer="NG">
+                </div>
+                <div class="question-block">
+                    <label class="question-text">9. Singaporeans' parents have a happy life. </label>
+                    <input type="text" id="q9" class="answer-input" data-answer="T">
+                </div>
+                <div class="question-block">
+                    <label class="question-text">10. Singaporeans have limited personal freedom. </label>
+                    <input type="text" id="q10" class="answer-input" data-answer="T">
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Multiple Choice -->
+        <div id="section-3" class="mb-8">
+            <h2 class="section-title text-2xl">Questions 11 to 15.</h2>
+            <p class="mb-4">Choose the correct option. Choose A, B or C.</p>
+            <div class="space-y-6">
+                <div class="question-block">
+                    <p class="question-text mb-2">11. Many parts of Mexico are _________________.</p>
+                    <div class="space-y-2">
+                        <div class="multiple-choice-option" data-question="11" data-answer="A">A. dangerous</div>
+                        <div class="multiple-choice-option" data-question="11" data-answer="A">B. safe</div>
+                        <div class="multiple-choice-option" data-question="11" data-answer="A">C. beautiful</div>
+                    </div>
+                </div>
+                <div class="question-block">
+                    <p class="question-text mb-2">12. Psychologists say people need to feel that they are part of a big ____________.</p>
+                    <div class="space-y-2">
+                        <div class="multiple-choice-option" data-question="12" data-answer="B">A. family</div>
+                        <div class="multiple-choice-option" data-question="12" data-answer="B">B. community</div>
+                        <div class="multiple-choice-option" data-question="12" data-answer="B">C. organization</div>
+                    </div>
+                </div>
+                <div class="question-block">
+                    <p class="question-text mb-2">13. People in Mexico __________ with their neighbors and friends.</p>
+                    <div class="space-y-2">
+                        <div class="multiple-choice-option" data-question="13" data-answer="C">A. argue</div>
+                        <div class="multiple-choice-option" data-question="13" data-answer="C">B. fight</div>
+                        <div class="multiple-choice-option" data-question="13" data-answer="C">C. socialize</div>
+                    </div>
+                </div>
+                <div class="question-block">
+                    <p class="question-text mb-2">14. About 50% of Mexicans are ____________.</p>
+                    <div class="space-y-2">
+                        <div class="multiple-choice-option" data-question="14" data-answer="B">A. very rich</div>
+                        <div class="multiple-choice-option" data-question="14" data-answer="B">B. poor</div>
+                        <div class="multiple-choice-option" data-question="14" data-answer="B">C. sick</div>
+                    </div>
+                </div>
+                <div class="question-block">
+                    <p class="question-text mb-2">15. Poor people in Mexico don't worry much because their __________ are also poor.</p>
+                    <div class="space-y-2">
+                        <div class="multiple-choice-option" data-question="15" data-answer="B">A. friends</div>
+                        <div class="multiple-choice-option" data-question="15" data-answer="B">B. neighbors</div>
+                        <div class="multiple-choice-option" data-question="15" data-answer="B">C. colleagues</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: Complete the Text -->
+        <div id="section-4" class="mb-8">
+            <h2 class="section-title text-2xl">Questions 16 to 20.</h2>
+            <p class="mb-4">Complete the text below with words from the passage. Choose NO MORE THAN ONE WORD from the box for each answer. There is one extra word.</p>
+            <div class="bg-gray-200 p-4 rounded-lg mb-4 text-center text-gray-700">
+                <span class="font-bold">Word Bank:</span> freedom, confident, socialize, equal, provides, access
+            </div>
+            <div class="space-y-4">
+                <div class="question-block">
+                    <p class="question-text mb-2">Singapore and Mexico are two very happy countries. However, the reasons for happiness are very different in these countries. The people in Singapore are happy because their government (16) <input type="text" id="q16" class="answer-input inline-block w-40" data-answer="provides"> them almost everything like money, jobs and safety. The government 'tops-up' the income of poor families, so almost all have (17) <input type="text" id="q17" class="answer-input inline-block w-40" data-answer="equal"> standards of living. However, people there do not have much personal (18) <input type="text" id="q18" class="answer-input inline-block w-40" data-answer="freedom"> because the laws are very strict. On the contrary, the situation in Mexico is very different. Many places in Mexico are dangerous and a lot of people don’t have (19) <input type="text" id="q19" class="answer-input inline-block w-40" data-answer="access"> to good education. However, they are happy because they (20) <input type="text" id="q20" class="answer-input inline-block w-40" data-answer="socialize"> with their friends and neighbors. They also don't worry about money because almost all people in their community are poor and have the same living standards.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-8">
+            <button id="submitBtn" class="submit-btn">Submit</button>
+        </div>
+    </div>
+
+    <!-- Score Pop-up -->
+    <div id="overlay" class="overlay"></div>
+    <div id="scoreBox" class="score-box">
+        <h3 class="text-3xl mb-4">Your Score</h3>
+        <p id="scoreText" class="score-text">0 / 20</p>
+        <p id="timerMessage" class="re-attempt-timer"></p>
+        <button id="resetBtn" class="submit-btn mt-4" style="display:none;">Re-attempt</button>
+    </div>
+
+    <script>
+        const answers = {
+            'q1': '3', 'q2': '1', 'q3': '4', 'q4': '2', 'q5': '6',
+            'q6': 'T', 'q7': 'F', 'q8': 'NG', 'q9': 'T', 'q10': 'T',
+            'q11': 'A', 'q12': 'B', 'q13': 'C', 'q14': 'B', 'q15': 'B',
+            'q16': 'provides', 'q17': 'equal', 'q18': 'freedom', 'q19': 'access', 'q20': 'socialize'
+        };
+
+        const properNouns = ['Singapore', 'Mexico'];
+        const form = document.querySelector('.container');
+        const submitBtn = document.getElementById('submitBtn');
+        const scoreBox = document.getElementById('scoreBox');
+        const scoreText = document.getElementById('scoreText');
+        const overlay = document.getElementById('overlay');
+        const resetBtn = document.getElementById('resetBtn');
+        const timerMessage = document.getElementById('timerMessage');
+
+        // Multiple choice selection logic
+        document.querySelectorAll('.multiple-choice-option').forEach(option => {
+            option.addEventListener('click', () => {
+                const questionNumber = option.dataset.question;
+                const siblings = document.querySelectorAll(`.multiple-choice-option[data-question="${questionNumber}"]`);
+                siblings.forEach(sibling => sibling.classList.remove('selected'));
+                option.classList.add('selected');
+            });
+        });
+
+        submitBtn.addEventListener('click', () => {
+            let score = 0;
+            const totalQuestions = Object.keys(answers).length;
+
+            // Mark text inputs
+            document.querySelectorAll('input[type="text"]').forEach(input => {
+                const id = input.id;
+                const userAnswer = input.value.trim();
+                let isCorrect = false;
+
+                if (properNouns.includes(userAnswer)) {
+                    isCorrect = userAnswer === answers[id];
+                } else {
+                    isCorrect = userAnswer.toLowerCase() === answers[id].toLowerCase();
+                }
+
+                if (isCorrect) {
+                    score++;
+                }
+                input.disabled = true;
+            });
+
+            // Mark multiple-choice questions
+            document.querySelectorAll('.multiple-choice-option.selected').forEach(option => {
+                const questionNumber = option.dataset.question;
+                const correctAnswer = answers['q' + questionNumber];
+                if (option.dataset.answer === correctAnswer) {
+                    score++;
+                }
+            });
+
+            // Disable all multiple-choice options after submission
+            document.querySelectorAll('.multiple-choice-option').forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            // Show the score
+            scoreText.textContent = `${score} / ${totalQuestions}`;
+            overlay.style.display = 'block';
+            scoreBox.style.display = 'block';
+
+            // Disable submit button
+            submitBtn.disabled = true;
+
+            // Start 60-minute timer for re-attempt
+            let timeLeft = 3600;
+            const timer = setInterval(() => {
+                timeLeft--;
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                timerMessage.textContent = `You can re-attempt in ${minutes}:${seconds.toString().padStart(2, '0')}`;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    timerMessage.textContent = '';
+                    resetBtn.style.display = 'block';
+                }
+            }, 1000);
+        });
+        
+        resetBtn.addEventListener('click', () => {
+            window.location.reload();
+        });
+    </script>
+</body>
+</html>
